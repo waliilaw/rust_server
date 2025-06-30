@@ -4,7 +4,7 @@ Hey there! This is a super simple todo list API built with Rust. It lets you cre
 
 ## 🌐 API URLs
 - Local: `http://localhost:3000`
-- Deployed: `YOUR_RAILWAY_URL` (replace this with your actual Railway URL)
+- Deployed: `https://rustserver-production.up.railway.app` (replace this with your actual Railway URL)
 
 ## 🏃‍♂️ Quick Start
 
@@ -28,7 +28,7 @@ curl -X POST http://localhost:3000/todos \
 -d '{"title": "Learn Rust"}'
 
 # Deployed
-curl -X POST YOUR_RAILWAY_URL/todos \
+curl -X POST https://rustserver-production.up.railway.app/todos \
 -H "Content-Type: application/json" \
 -d '{"title": "Learn Rust"}'
 ```
@@ -39,7 +39,7 @@ curl -X POST YOUR_RAILWAY_URL/todos \
 curl http://localhost:3000/todos
 
 # Deployed
-curl YOUR_RAILWAY_URL/todos
+curl https://rustserver-production.up.railway.app/todos
 ```
 
 ### Delete a Todo
@@ -48,7 +48,7 @@ curl YOUR_RAILWAY_URL/todos
 curl -X DELETE http://localhost:3000/todos/YOUR-TODO-ID
 
 # Deployed
-curl -X DELETE YOUR_RAILWAY_URL/todos/YOUR-TODO-ID
+curl -X DELETE https://rustserver-production.up.railway.app/todos/YOUR-TODO-ID
 ```
 (Replace YOUR-TODO-ID with the ID you got when creating the todo)
 
