@@ -9,6 +9,7 @@ use tokio::net::TcpListener;
 
 use std::sync::{Arc , Mutex};
 use uuid::Uuid;
+use std::env;
 
 #[derive(Clone , Debug , Serialize , Deserialize)]
 struct Todo {
@@ -59,9 +60,12 @@ async fn main (){
 
     let app = Router::new().route("/todos" , get(get_todos).post(create_todo)).route("/todos/{id}" , delete(delete_todo)).with_state(state);
 
-    println!("🚀 Server starting on http://localhost:3000");
+    let port = env::var("PORT").unwrap_or_else(|_| "3000".to_string());
+    let addr = format!("0.0.0.0:{}", port);
+    
+    println!("Server on {}", addr);
 
-    let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let listener = TcpListener::bind(addr).await.unwrap();
     axum::serve(listener , app ).await.unwrap();
 }
 
